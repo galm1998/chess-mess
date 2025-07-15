@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ChessPiece from './ChessPiece';
 
 // Add this helper function
@@ -12,31 +12,31 @@ function coordsToAlgebraic(x: number, y: number) {
     return `${String.fromCharCode(97 + x)}${8 - y}`;
 }
 const initialPieces = [
-        // White pieces
-        { type: 'rook', color: 'w', position: 'a1' },
-        { type: 'knight', color: 'w', position: 'b1' },
-        { type: 'bishop', color: 'w', position: 'c1' },
-        { type: 'queen', color: 'w', position: 'd1' },
-        { type: 'king', color: 'w', position: 'e1' },
-        { type: 'bishop', color: 'w', position: 'f1' },
-        { type: 'knight', color: 'w', position: 'g1' },
-        { type: 'rook', color: 'w', position: 'h1' },
-        ...Array.from({ length: 8 }, (_, i) => ({
-            type: 'pawn', color: 'w', position: `${String.fromCharCode(97 + i)}2`
-        })),
-        // Black pieces
-        { type: 'rook', color: 'b', position: 'a8' },
-        { type: 'knight', color: 'b', position: 'b8' },
-        { type: 'bishop', color: 'b', position: 'c8' },
-        { type: 'queen', color: 'b', position: 'd8' },
-        { type: 'king', color: 'b', position: 'e8' },
-        { type: 'bishop', color: 'b', position: 'f8' },
-        { type: 'knight', color: 'b', position: 'g8' },
-        { type: 'rook', color: 'b', position: 'h8' },
-        ...Array.from({ length: 8 }, (_, i) => ({
-            type: 'pawn', color: 'b', position: `${String.fromCharCode(97 + i)}7`
-        })),
-    ];
+    // White pieces
+    { type: 'rook', color: 'w', position: 'a1' },
+    { type: 'knight', color: 'w', position: 'b1' },
+    { type: 'bishop', color: 'w', position: 'c1' },
+    { type: 'queen', color: 'w', position: 'd1' },
+    { type: 'king', color: 'w', position: 'e1' },
+    { type: 'bishop', color: 'w', position: 'f1' },
+    { type: 'knight', color: 'w', position: 'g1' },
+    { type: 'rook', color: 'w', position: 'h1' },
+    ...Array.from({ length: 8 }, (_, i) => ({
+        type: 'pawn', color: 'w', position: `${String.fromCharCode(97 + i)}2`
+    })),
+    // Black pieces
+    { type: 'rook', color: 'b', position: 'a8' },
+    { type: 'knight', color: 'b', position: 'b8' },
+    { type: 'bishop', color: 'b', position: 'c8' },
+    { type: 'queen', color: 'b', position: 'd8' },
+    { type: 'king', color: 'b', position: 'e8' },
+    { type: 'bishop', color: 'b', position: 'f8' },
+    { type: 'knight', color: 'b', position: 'g8' },
+    { type: 'rook', color: 'b', position: 'h8' },
+    ...Array.from({ length: 8 }, (_, i) => ({
+        type: 'pawn', color: 'b', position: `${String.fromCharCode(97 + i)}7`
+    })),
+];
 
 const ChessBoard: React.FC = () => {
     const boardSize = 8;
@@ -61,10 +61,9 @@ const ChessBoard: React.FC = () => {
                 !piece // must be empty square
             ) {
                 // Pawn move logic
-                const dir = turn === 'w' ? 1 : -1;
                 const selCoords = algebraicToCoords(selected);
+                const dir = selPiece.color === 'w' ? -1 : 1; // White moves up (y-1), black down (y+1)
                 if (x === selCoords.x && y === selCoords.y + dir) {
-                    // Move pawn
                     setPieces(pieces.map(p =>
                         p.position === selected
                             ? { ...p, position: pos }
@@ -101,8 +100,8 @@ const ChessBoard: React.FC = () => {
                                 backgroundColor: isSelected
                                     ? 'yellow'
                                     : isBlackSquare
-                                    ? 'black'
-                                    : 'white',
+                                        ? 'black'
+                                        : 'white',
                                 width: '50px',
                                 height: '50px',
                                 position: 'relative',

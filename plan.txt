@@ -1,0 +1,61 @@
+Piece movement planning:
+MakeMove(<?pieceId>,<?squareId>)
+Assuming normal~ish movement, a piece changes it’s location to a new square,
+
+We need to also include moves like skip turn and other special stuff.
+GetPiecePossibleMoves(<pieceId>)
+// we will know player color for getPossibleMove by the piece id == color
+
+What are we solving: 
+While working on FE piece movement, i thought about how will i show the user all the possible moves for a piece he selected
+(example: click on horse -> should show all available squares to move to)
+
+The main issue is that we are planning on having many modifiers that can change this behaviour of which squares the piece can move to.
+
+Thus i think we should have all this logic in BE,
+So we should implement a function to get the possible moves for a piece,
+This function should be available to both the players, even when it is not their turn.
+
+(because we will also want the player that is not currently playing (waiting for his turn) to be able to plan ahead)
+
+Question - should we show a possible move that is not possible ? (prob no)
+
+
+GetBoardState()
+What we are solving:
+
+For simplicity, i will explain and assume only on white, all should apply for black as well.
+
+We want to be able to request BE information on all the pieces, 
+This should include data like -
+Pieces:
+We need to be able to get the all pieces on the board and their square position.
+Disabled pieces: 
+Assuming we will want to create modifiers that can disable movement of opponent, white should be able to visually show the user all white pieces that are disabled by the game logic.
+White should also show the user all black pieces that are disabled.
+(on white’s turn, we should disable the possibleMoves logic when clicking disabled white pieces)
+
+
+
+Improved Pieces:
+We need to be able to show any active modifiers that change the pieces visuals
+Board State:
+Assuming we will have modifiers that change squares on the board, 
+We need to be able to get the new state of all squares.
+
+
+
+
+Modifiers Visual planning:
+GetModifiersState():
+Assuming white has logged off, and is now re-joining the game after black has played,
+We need a way to get the current modifiers states for both players:
+
+Each player has 5 modifier slots,
+
+We need to get each player’s 5 modifiers (empty / modifier-card-id and if there are any effects on the modifier slot)
+
+Example for modifier slot effect could be that white player can block / disable the effect of one of the modifier slots for x turns.
+
+UseActiveModifier(<modifier-id>):
+Assuming we will have modifiers that can be activated, we need a way to tell BE white used his modifier so the game logic can be updated.
