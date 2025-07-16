@@ -1,0 +1,5 @@
+<!-- filepath: /Users/galmoyal/Desktop/code sandbox/chess-mess/Client/public/pieces/w_bishop.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45">
+  <ellipse cx="22.5" cy="22" rx="8" ry="14" fill="#fff" stroke="#222" stroke-width="2"/>
+  <rect x="18" y="34" width="9" height="5" fill="#fff" stroke="#222" stroke-width="2"/>
+</svg>
