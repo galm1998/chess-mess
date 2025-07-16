@@ -1,9 +1,12 @@
 {
   "files.exclude": {
     "**/package-lock.json": true,
+    "**/package.json": true,
+    "**/nest-cli.json": true,
     "**/README.md": true,
     "**/tsconfig.json": true,
     "**/.gitignore": true,
+    "**/test": true,
     "**/node_modules": true
   }
 }
