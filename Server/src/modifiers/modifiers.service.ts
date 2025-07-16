@@ -15,7 +15,8 @@ export class ModifiersService {
     let modifier: Modifier = {
       id: modifierId,
       name: `Modifier ${modifierId}`,
-      effect: `Effect of modifier ${modifierId}`,
+      description: `Description for modifier ${modifierId}`,
+      effects: `Effects on modifier ${modifierId}`, // examples: blocked slot, disable modifier for 3 turns, etc.
       active: false
     };
 

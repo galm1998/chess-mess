@@ -10,7 +10,7 @@ What are we solving:
 While working on FE piece movement, i thought about how will i show the user all the possible moves for a piece he selected
 (example: click on horse -> should show all available squares to move to)
 
-The main issue is that we are planning on having many modifiers that can change this behaviour of which squares the piece can move to.
+The main issue is that we are planning on having many modifiers that can change this behavior of which squares the piece can move to.
 
 Thus i think we should have all this logic in BE,
 So we should implement a function to get the possible moves for a piece,
