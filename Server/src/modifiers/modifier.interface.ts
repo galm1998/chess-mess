@@ -1,7 +1,8 @@
 export interface Modifier {
   id: string;
-  name: string;
-  effect: string; // Description of the modifier's effect
+  name: string; // Name of the modifier
+  description?: string; // Optional description of the modifier
+  effects: string; // active effects on the modifier
   active: boolean; // Indicates if the modifier is currently active
 }
 

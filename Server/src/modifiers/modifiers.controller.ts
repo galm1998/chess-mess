@@ -32,15 +32,3 @@ export class ModifiersController {
     this.modifiersService.deactivateModifier(modifierId, isWhitePlayer === 'true');
   }
 }
-
-// GetModifiersState():
-// Assuming white has logged off, and is now re-joining the game after black has played,
-// We need a way to get the current modifiers states for both players:
-
-// Each player has 5 modifier slots,
-
-// We need to get each player’s 5 modifiers (empty / modifier-card-modifierId and if there are any effects on the modifier slot)
-
-// Example for modifier slot effect could be that white player can block / disable the effect of one of the modifier slots for x turns.
-
-// UseActiveModifier(<modifier-modifierId>):
